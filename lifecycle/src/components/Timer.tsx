@@ -8,7 +8,7 @@ const Timer = () => {
 
     return () => {
       console.log("타이머 정리됨");
-      clearInterval(interval)
+      clearInterval(interval) // interval를 닫아주는 역할
     }
   }, [])
 

@@ -11,7 +11,7 @@ function App() {
     setValue((prev) => prev + 1);
   }
   useEffect(()=>{
-    console.log("시작!!")
+    console.log("시작!!") 
     // 앱 초기 작업, API 호출
   }, []);
 
@@ -23,14 +23,13 @@ function App() {
     console.log("다른 일")
   }, [value])
 
-
   console.log("렌더링")
   return (
     <div className ="App">
-      <h1>{count}</h1>
-      <h2>value: {value}</h2>
-      <button onClick={handleClick}>증가</button>
-      <button onClick={()=>setshowTimer((prev) => !prev)}>
+      <h1>{ count }</h1>
+      <h2>value: { value }</h2>
+      <button onClick={ handleClick }>증가</button>
+      <button onClick={ () => setshowTimer((prev) => !prev) }>
         show/hide
       </button>
       {showTimer && <Timer />}
@@ -40,3 +39,5 @@ function App() {
 }
 
 export default App
+
+
