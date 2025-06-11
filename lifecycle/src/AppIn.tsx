@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Controller from "./components/Controller";
 import Viewer from "./components/Viewer";
+import Even from "./components/Even";
 
 function AppIn() {
   const [count, setCount] = useState(0);
@@ -12,7 +13,7 @@ function AppIn() {
   useEffect(()=>{
     console.log("Mount")
   },[])
-  
+
   // 2. 업데이트 : 변화, 리렌더링
   useEffect(()=>{
     if(!isMount.current) {
@@ -38,6 +39,7 @@ function AppIn() {
         </section>
         <section>
           <Viewer count={count} />
+          {count % 2 === 0 ? <Even /> : null}
         </section>
         <section>
           <Controller onClickButton={onClickButton} />
