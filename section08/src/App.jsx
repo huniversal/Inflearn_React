@@ -26,7 +26,7 @@ const mockData = [
 ]
 
 function App() {
-  const [todos, setTodos] = useState([mockData]);
+  const [todos, setTodos] = useState(mockData);
   const idRef = useRef(3);
 
   const onCreate = (content) => {
@@ -43,7 +43,7 @@ function App() {
     <div className='App'>
       <Header />
       <Editor onCreate={onCreate} />
-      <List />
+      <List todos={todos} />
     </div>
   )
 }
