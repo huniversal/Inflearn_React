@@ -1,10 +1,14 @@
 import React from 'react'
 import "./TodoItem.css"
 
-const TodoItem = ({id, isDone, content, date}) => {
+const TodoItem = ({id, isDone, content, date, onUpdate}) => {
+  const onChangeCheckbox = () => {
+    onUpdate(id);
+  }
   return (
     <div className='TodoItem'>
       <input 
+        onChange={onChangeCheckbox}
         type="checkbox"
         checked={isDone} 
       />
