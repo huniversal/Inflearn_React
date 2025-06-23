@@ -14,10 +14,20 @@ const promise = new Promise((res, rej) => {
   // executor 함수
 
   setTimeout(() => {
-    console.log("hi");
-    res(); // 성공 상태로 바뀜
+    const num = 10;
+    if(typeof num === 'number') {
+      res(num + 10)
+    } else {
+      rej("num은 숫자여야 합니다.")
+    }
   }, 2000)
 })
-setTimeout(() => {
-  console.log(promise);
-}, 3000)
+// then 메소드 -> 그 후에
+
+promise.then((value) => {
+  console.log(value);
+})
+
+promise.catch((error) => {
+  console.error(error);
+});
