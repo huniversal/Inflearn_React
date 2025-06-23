@@ -8,3 +8,16 @@
 
 // 대기상태였다가 성공으로 바뀌는걸 resolve라고 하고, 
 // 실패로 바뀌는걸 reject라고 한다.
+
+const promise = new Promise((res, rej) => {
+  // 비동기 작업을 실행하는 함수 
+  // executor 함수
+
+  setTimeout(() => {
+    console.log("hi");
+    res(); // 성공 상태로 바뀜
+  }, 2000)
+})
+setTimeout(() => {
+  console.log(promise);
+}, 3000)
