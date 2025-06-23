@@ -9,25 +9,26 @@
 // 대기상태였다가 성공으로 바뀌는걸 resolve라고 하고, 
 // 실패로 바뀌는걸 reject라고 한다.
 
-const promise = new Promise((res, rej) => {
-  // 비동기 작업을 실행하는 함수 
-  // executor 함수
+function add10 (num) {
+  const promise = new Promise((res, rej) => {
+    // 비동기 작업을 실행하는 함수 
+    // executor 함수
+  
+    setTimeout(() => {
+      if(typeof num === 'number') {
+        res(num + 10)
+      } else {
+        rej("num은 숫자여야 합니다.")
+      }
+    }, 2000)
+  });
 
-  setTimeout(() => {
-    const num = 10;
-    if(typeof num === 'number') {
-      res(num + 10)
-    } else {
-      rej("num은 숫자여야 합니다.")
-    }
-  }, 2000)
-})
-// then 메소드 -> 그 후에
+  return promise;
+}
 
-promise.then((value) => {
-  console.log(value);
-})
-
-promise.catch((error) => {
-  console.error(error);
+const p = add10(10);
+p.then((result) => {
+  console.log("성공:", result);
+}).catch((error) => {
+  console.error("실패:", error);
 });
