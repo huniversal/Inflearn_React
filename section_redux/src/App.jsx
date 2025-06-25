@@ -4,14 +4,19 @@ import AddNumberRoot from './components/AddNumberRoot';
 import DisplayNumberRoot from './components/DisplayNumberRoot';
 
 
-const App = () => {
-  return (
-    <div>
-      <h1>Root</h1>
-      <AddNumberRoot></AddNumberRoot>
-      <DisplayNumberRoot></DisplayNumberRoot>
-    </div>
-  )
+class App extends Component{
+  state={number: 0}
+  render(){
+    return (
+      <div>
+        <h1>Root</h1>
+        <AddNumberRoot onClick={function(size) {
+          this.setState({number:this.state.number + size})
+        }.bind(this)}></AddNumberRoot>
+        <DisplayNumberRoot number={this.state.number}></DisplayNumberRoot>
+      </div>
+    )
+  }
 }
 
 
