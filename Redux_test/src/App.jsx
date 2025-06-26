@@ -6,6 +6,7 @@ function App() {
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   const increase = () => {
+    dispatch({type: INCREMENT})
     setCount(count + 1);
   }
   return (
