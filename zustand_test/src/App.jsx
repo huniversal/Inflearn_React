@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <h1>count: {count}</h1>
-      <CountBox count={count}/>
+      <CountBox />
     </div>
   )
 }
