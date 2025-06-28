@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Box, TextField, Button } from "@mui/material"
-import usePhoneBookStore from '../stores/usePhoneBook';
+import usePhoneBookStore from '../stores/usePhoneBookStore';
 
 
 const ContactForm = () => {
@@ -11,7 +11,7 @@ const ContactForm = () => {
   const handleAddContact = () => {
     // 연락처 저장 장소(배열 : phoneBook = [])
     // 연락처를 추가
-    if(name.trim () || phoneNumber.trim()) return 
+    if(!name.trim () || !phoneNumber.trim()) return 
     addContact(name, phoneNumber);
   }
   return (

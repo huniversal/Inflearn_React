@@ -1,9 +1,17 @@
 import React from 'react'
+import usePhoneBookStore from '../stores/usePhoneBookStore'
 
 const ContactList = () => {
+  const { phoneBook } = usePhoneBookStore();
+  console.log(phoneBook)
   return (
     <div>
-      <h1>ContactList</h1>
+      {phoneBook.map((item) => (
+        <div key={item.id}>
+          <p>{item.name}</p>
+          <p>{item.phoneNumber}</p>
+        </div>
+    ))}
     </div>
   )
 }
